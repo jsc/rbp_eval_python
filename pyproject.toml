@@ -1,0 +1,56 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "rbp-eval"
+version = "1.0.0"
+description = "Python port of rbp_eval: Rank-Biased Precision evaluation for IR experiments"
+readme = "README.md"
+requires-python = ">=3.10"
+license = "MIT"
+license-files = ["LICENSE"]
+authors = [
+    { name = "J. Shane Culpepper", email = "shane.culpepper@gmail.com" },
+]
+keywords = [
+    "information-retrieval",
+    "evaluation",
+    "rank-biased-precision",
+    "rbp",
+    "ndcg",
+    "trec",
+]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Science/Research",
+    "Topic :: Scientific/Engineering :: Information Analysis",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Operating System :: OS Independent",
+]
+dependencies = [
+    "numpy>=1.24",
+    "scipy>=1.10",
+]
+
+[project.urls]
+Homepage = "https://github.com/jsc/rbp_eval"
+Repository = "https://github.com/jsc/rbp_eval"
+
+[project.optional-dependencies]
+dev = ["pytest>=7"]
+
+[project.scripts]
+rbp_eval = "rbp_eval.cli.rbp_eval:main"
+dcg_eval = "rbp_eval.cli.dcg_eval:main"
+reltrans = "rbp_eval.cli.reltrans:main"
+minavgerr = "rbp_eval.cli.minavgerr:main"
+minmaxerr = "rbp_eval.cli.minmaxerr:main"
+pooljudge = "rbp_eval.cli.pooljudge:main"
+
+[tool.setuptools.packages.find]
+include = ["rbp_eval*"]
